@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Generator</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; background: #f5f5f5; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 10px; }
+        .btn { background: #2563eb; color: white; padding: 12px 24px; border: none; border-radius: 6px; cursor: pointer; margin: 10px; font-size: 16px; }
+        .btn:hover { background: #1d4ed8; }
+        .btn.creative { background: #7c3aed; }
+        .btn.creative:hover { background: #6d28d9; }
+        .btn.general { background: #059669; }
+        .btn.general:hover { background: #047857; }
+        .output { margin-top: 20px; padding: 20px; background: #f8f9fa; border-radius: 6px; }
+        .status { padding: 10px; margin: 10px 0; border-radius: 4px; }
+        .success { background: #d1fae5; color: #065f46; border: 1px solid #10b981; }
+        .info { background: #dbeafe; color: #1e40af; border: 1px solid #3b82f6; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Resume Generator</h1>
+        <p>Generate different versions of your resume from the JSON data:</p>
+        
+        <button class="btn" onclick="generateResume('ai')">🤖 Generate AI Product Resume</button>
+        <button class="btn creative" onclick="generateResume('creative')">🎙️ Generate Creative/Voice Resume</button>
+        <button class="btn general" onclick="generateResume('general')">⚡ Generate General Resume</button>
+        
+        <div id="status"></div>
+        
+        <div class="output">
+            <h3>Instructions:</h3>
+            <ol>
+                <li>Click a button above to generate a resume</li>
+                <li>The HTML will be displayed in a new window</li>
+                <li>Use Ctrl+S (or Cmd+S) to save the HTML file</li>
+                <li>Open in browser and print to PDF for final version</li>
+            </ol>
+        </div>
+    </div>
+
+    <script src="resume-data.js"></script>
+    <script src="resume-generator.js"></script>
+    <script>
+        function generateResume(type) {
+            const statusDiv = document.getElementById('status');
+            statusDiv.innerHTML = '<div class="status info">Generating resume...</div>';
+            
+            try {
+                const generator = new ResumeGenerator(resumeData);
+                let html;
+                let filename;
+                
+                switch(type) {
+                    case 'ai':
+                        html = generator.generateAIProductResume();
+                        filename = 'thanatsitt-ai-product-resume.html';
+                        break;
+                    case 'creative':
+                        html = generator.generateCreativeVoiceResume();
+                        filename = 'thanatsitt-creative-voice-resume.html';
+                        break;
+                    case 'general':
+                        html = generator.generateGeneralResume();
+                        filename = 'thanatsitt-general-resume.html';
+                        break;
+                }
+                
+                // Open in new window for preview/save
+                const newWindow = window.open();
+                newWindow.document.write(html);
+                newWindow.document.close();
+                
+                // Also offer download
+                downloadHTML(html, filename);
+                
+                statusDiv.innerHTML = `<div class="status success">✅ Resume generated successfully! Check the new window and your downloads.</div>`;
+                
+            } catch(error) {
+                statusDiv.innerHTML = `<div class="status error">❌ Error generating resume: ${error.message}</div>`;
+                console.error(error);
+            }
+        }
+        
+        function downloadHTML(html, filename) {
+            const blob = new Blob([html], { type: 'text/html' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+    </script>
+</body>
+</html>
