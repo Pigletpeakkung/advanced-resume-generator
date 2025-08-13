@@ -1,0 +1,175 @@
+# MIT License
+
+## Advanced Resume Generator
+
+**Copyright (c) 2024 Thanattsitt Thanatt Santisamranwilai**
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+**THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.**
+
+---
+
+## Additional Terms and Conditions
+
+### Attribution Requirements
+While not legally required by the MIT License, we kindly request that you:
+
+1. **Maintain Attribution**: Keep the original copyright notice and author information when distributing or modifying the software
+2. **Credit in Documentation**: If you use this software in a product or service, consider mentioning it in your documentation or about page
+3. **Link Back**: When possible, include a link to the original repository: `https://github.com/ThanattsittS/advanced-resume-generator`
+
+### Commercial Use Guidelines
+This software is freely available for commercial use under the MIT License. However, please note:
+
+- ✅ **Allowed**: Use in commercial products, SaaS applications, internal business tools
+- ✅ **Allowed**: Modification and customization for your specific needs
+- ✅ **Allowed**: Integration into larger software systems
+- ✅ **Allowed**: White-label implementations with proper attribution
+
+### Third-Party Dependencies
+This project may include third-party libraries and assets with their own licenses:
+
+```
+├── Font Awesome (Icons) - Font Awesome License
+├── Google Fonts - SIL Open Font License
+├── Express.js - MIT License  
+├── Inquirer.js - MIT License
+├── Chalk - MIT License
+├── Commander.js - MIT License
+└── Other npm packages - Various licenses (see package.json)
+```
+
+**Note**: Please review individual dependency licenses in `package.json` and `node_modules` for complete licensing information.
+
+### Sample Data Notice
+The sample resume data included in this project (names, experiences, skills, etc.) is:
+
+- **Fictional**: All sample data is for demonstration purposes only
+- **Not Real**: Does not represent actual persons or companies
+- **Customizable**: Intended to be replaced with your own data
+- **Template Only**: Serves as a template for structure and formatting
+
+### Trademark and Brand Guidelines
+
+#### Developer Information
+- **Developer Name**: Thanattsitt Thanatt Santisamranwilai
+- **Email**: thanattsitt.info@yahoo.co.uk
+- **Portfolio**: https://dribbble.com/ThanattsittS
+- **GitHub**: https://github.com/ThanattsittS
+
+#### Usage of Developer Name/Brand
+- ✅ **Allowed**: Crediting the original developer
+- ✅ **Allowed**: Linking to developer's portfolio/work
+- ❌ **Not Allowed**: Implying endorsement without permission
+- ❌ **Not Allowed**: Using developer's name in your product name
+
+### Support and Contributions
+
+#### Community Support
+- **Issues**: Report bugs and feature requests via GitHub Issues
+- **Discussions**: Use GitHub Discussions for questions and community support  
+- **Security**: Report security issues privately via GitHub Security Advisories
+
+#### Contributing
+Contributions are welcome! By contributing, you agree that:
+- Your contributions will be licensed under the same MIT License
+- You have the right to contribute the code/content
+- You understand this is an open source project with volunteer maintainers
+
+#### Financial Support
+If this project has been helpful, consider supporting the developer:
+- ☕ **Ko-fi**: https://ko-fi.com/ezekielarts
+- 🎯 **GoFundMe**: https://www.gofundme.com/f/support-my-journey-toward-independence-and-stability
+- 💼 **Hire for Projects**: https://dribbble.com/ThanattsittS/services
+
+### Disclaimer and Liability
+
+#### Resume Content
+- **User Responsibility**: Users are responsible for the accuracy and content of their resumes
+- **Employment Outcomes**: No guarantee of job placement or interview success
+- **Content Verification**: Users must verify all information in generated resumes
+
+#### Technical Limitations  
+- **Browser Compatibility**: May not work in all browsers or versions
+- **Performance**: Performance may vary based on system specifications
+- **Updates**: Software may receive updates that change functionality
+
+#### Privacy and Data
+- **Local Processing**: Resume data is processed locally in your browser
+- **No Data Collection**: We do not collect or store your personal resume data
+- **Export Security**: Users are responsible for securing exported resume files
+
+### Warranty Disclaimer
+
+**IMPORTANT**: This software is provided "as is" without warranty. The developers make no guarantees about:
+
+- ✗ Fitness for any particular purpose
+- ✗ Merchantability or quality
+- ✗ Error-free operation
+- ✗ Compatibility with all systems
+- ✗ Job search success or outcomes
+
+### License Compatibility
+
+This MIT License is compatible with:
+- ✅ **GPL v3** (GPL-compatible)
+- ✅ **Apache 2.0** (Apache-compatible) 
+- ✅ **BSD Licenses** (BSD-compatible)
+- ✅ **Commercial Licenses** (Business-friendly)
+- ✅ **Proprietary Software** (Can be included)
+
+### International Considerations
+
+This software and license are governed by:
+- **Applicable Law**: Laws where the software is used
+- **Copyright**: International copyright treaties
+- **Export Control**: May be subject to export control laws
+- **Compliance**: Users must comply with local laws and regulations
+
+---
+
+## Quick Reference
+
+| Permission | Status | Notes |
+|------------|--------|-------|
+| Commercial Use | ✅ Allowed | Use in commercial products |
+| Modification | ✅ Allowed | Modify and customize freely |
+| Distribution | ✅ Allowed | Share and redistribute |
+| Private Use | ✅ Allowed | Use for personal projects |
+| Patent Claims | ❌ Not Granted | No patent rights granted |
+| Trademark Use | ❌ Not Granted | Cannot use developer's trademarks |
+| Liability | ❌ Not Accepted | No warranty or liability |
+| Warranty | ❌ Not Provided | Software provided "as is" |
+
+---
+
+## Contact Information
+
+**Developer**: Thanattsitt Thanatt Santisamranwilai  
+**Email**: thanattsitt.info@yahoo.co.uk  
+**Portfolio**: https://dribbble.com/ThanattsittS  
+**GitHub**: https://github.com/ThanattsittS  
+
+For licensing questions, technical support, or collaboration opportunities, please reach out via email or GitHub.
+
+---
+
+*This license was last updated on January 25, 2024. For the most current version, please check the repository.*
+
+**Repository**: https://github.com/ThanattsittS/advanced-resume-generator  
+**License File**: https://github.com/ThanattsittS/advanced-resume-generator/blob/main/LICENSE
