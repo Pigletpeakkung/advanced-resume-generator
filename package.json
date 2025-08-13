@@ -1,0 +1,68 @@
+{
+  "name": "advanced-resume-generator",
+  "version": "2.1.0",
+  "description": "Professional resume generator with advanced features, multiple themes, and export formats",
+  "main": "advanced-resume-generator.js",
+  "bin": {
+    "resume-gen": "./cli-generator.js"
+  },
+  "scripts": {
+    "start": "node advanced-resume-interface.html",
+    "cli": "node cli-generator.js",
+    "generate": "node cli-generator.js generate",
+    "batch": "node cli-generator.js batch",
+    "preview": "node cli-generator.js preview",
+    "test": "jest",
+    "lint": "eslint .",
+    "build": "webpack --mode production",
+    "dev": "webpack serve --mode development",
+    "analyze": "node scripts/analyze-bundle.js"
+  },
+  "keywords": [
+    "resume",
+    "cv",
+    "generator",
+    "ats",
+    "professional",
+    "html",
+    "pdf",
+    "responsive",
+    "accessibility",
+    "seo"
+  ],
+  "author": "Thanatsitt Santisamranwilai",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^11.1.0",
+    "inquirer": "^9.2.12",
+    "chalk": "^5.3.0",
+    "ora": "^7.0.1",
+    "open": "^9.1.0",
+    "express": "^4.18.2",
+    "js-yaml": "^4.1.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "eslint": "^8.54.0",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1",
+    "html-webpack-plugin": "^5.5.3",
+    "css-loader": "^6.8.1",
+    "style-loader": "^3.3.3",
+    "mini-css-extract-plugin": "^2.7.6",
+    "terser-webpack-plugin": "^5.3.9",
+    "bundle-analyzer": "^0.1.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thanatsitt/advanced-resume-generator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/thanatsitt/advanced-resume-generator/issues"
+  },
+  "homepage": "https://resume-generator.thanatsitt.com"
+}
