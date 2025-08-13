@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Resume Generator</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #0ea5e9;
+            --accent: #10b981;
+            --bg: #f8fafc;
+            --card: #ffffff;
+            --text: #1f2937;
+            --muted: #6b7280;
+            --border: #e5e7eb;
+            --radius: 12px;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .header p {
+            font-size: 1.25rem;
+            color: var(--muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .generator-interface {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .control-panel {
+            background: var(--card);
+            border-radius: var(--radius);
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            height: fit-content;
+            position: sticky;
+            top: 2rem;
+        }
+
+        .control-section {
+            margin-bottom: 2rem;
+        }
+
+        .control-section h3 {
+            margin-bottom: 1rem;
+            color: var(--primary);
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text);
+        }
+
+        .form-select,
+        .form-input,
+        .form-textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            font-size: 0.95rem;
+            transition: border-color 0.2s ease;
+        }
+
+        .form-select:focus,
+        .form-input:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--primary);
+        }
+
+        .button-group {
+            display: grid;
+            gap: 0.75rem;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 0.875rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-secondary {
+            background: var(--card);
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-accent {
+            background: linear-gradient(135deg, var(--accent), #059669);
+            color: white;
+        }
+
+        .preview-area {
+            background: var(--card);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            min-height: 800px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .preview-header {
+            padding: 1.5rem;
+            border-bottom: 2px solid var(--border);
+            display: flex;
+            justify-content: between;
+            align-items: center;
+        }
+
+        .preview-tabs {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .preview-tab {
+            padding: 0.5rem 1rem;
+            border: none;
+            background: transparent;
+            color: var(--muted);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .preview-tab.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .preview-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .preview-content {
+            padding: 2rem;
+            height: calc(100% - 80px);
+            overflow-y: auto;
+        }
+
+        .loading-state {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 400px;
+            color: var(--muted);
+        }
+
+        .loading-spinner {
+            width: 48px;
+            height: 48px;
+            border: 4px solid var(--border);
+            border-top-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 1rem;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .status-message {
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .status-success {
+            background: #d1fae5;
+            color: #065f46;
+            border: 1px solid #10b981;
+        }
+
+        .status-error {
+            background: #fee2e2;
+            color: #991b1b;
+            border: 1px solid #ef4444;
+        }
+
+        .status-info {
+            background: #dbeafe;
+            color: #1e40af;
+            border: 1px solid #3b82f6;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: var(--card);
+            padding: 2rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: transform 0.2s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .feature-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .analytics-panel {
+            background: var(--card);
+            border-radius: var(--radius);
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            margin-top: 2rem;
+        }
+
+        .analytics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .analytic-card {
+            text-align: center;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.05), rgba(14, 165, 233, 0.05));
+            border-radius: 12px;
+            border: 1px solid rgba(37, 99, 235, 0.1);
+        }
+
+        .analytic-value {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .analytic-label {
+            font-size: 0.9rem;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        @media (max-width: 1024px) {
+            .generator-interface {
+                grid-template-columns: 1fr;
+            }
+            
+            .control-panel {
+                position: static;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1><i class="fas fa-magic"></i> Advanced Resume Generator</h1>
+            <p>Create professional, ATS-friendly, and visually stunning resumes with advanced customization options and real-time analytics.</p>
+        </div>
+
+        <!-- Main Interface -->
+        <div class="generator-interface">
+            <!-- Control Panel -->
+            <div class="control-panel">
+                <div class="control-section">
+                    <h3><i class="fas fa-user-tie"></i> Resume Type</h3>
+                    <div class="form-group">
+                        <label for="resume-type">Select Focus</label>
+                        <select id="resume-type" class="form-select">
+                            <option value="ai_product">AI Product Developer</option>
+                            <option value="creative_voice">Creative & Voice Artist</option>
+                            <option value="general">General (Balanced)</option>
+                            <option value="startup">Startup Specialist</option>
+                            <option value="enterprise">Enterprise Focus</option>
+                            <option value="consulting">Consulting Expert</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="control-section">
+                    <h3><i class="fas fa-palette"></i> Design Options</h3>
+                    <div class="form-group">
+                        <label for="theme-select">Color Theme</label>
+                        <select id="theme-select" class="form-select">
+                            <option value="tech">Tech Blue</option>
+                            <option value="creative">Creative Purple</option>
+                            <option value="corporate">Corporate Gray</option>
+                            <option value="minimal">Minimal Black</option>
+                            <option value="dark">Dark Mode</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="layout-select">Layout Style</label>
+                        <select id="layout-select" class="form-select">
+                            <option value="modern">Modern (Sidebar Right)</option>
+                            <option value="classic">Classic (Sidebar Left)</option>
+                            <option value="creative">Creative (No Sidebar)</option>
+                            <option value="executive">Executive (Professional)</option>
+                            <option value="compact">Compact (Space-Saving)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="animations-select">Animations</label>
+                        <select id="animations-select" class="form-select">
+                            <option value="subtle">Subtle</option>
+                            <option value="dynamic">Dynamic</option>
+                            <option value="none">None (Print-Friendly)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="control-section">
+                    <h3><i class="fas fa-cog"></i> Features</h3>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="feature-interactive" checked>
+                            <label for="feature-interactive">Interactive Elements</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="feature-analytics" checked>
+                            <label for="feature-analytics">Analytics Tracking</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="feature-seo" checked>
+                            <label for="feature-seo">SEO Optimization</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="feature-accessibility" checked>
+                            <label for="feature-accessibility">Accessibility Features</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="feature-print" checked>
+                            <label for="feature-print">Print Optimization</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="control-section">
+                    <h3><i class="fas fa-filter"></i> Content Filters</h3>
+                    <div class="form-group">
+                        <label for="max-projects">Max Projects to Show</label>
+                        <input type="number" id="max-projects" class="form-input" value="4" min="1" max="10">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="skills-focus">Skills Focus</label>
+                        <select id="skills-focus" class="form-select">
+                            <option value="auto">Auto (Based on Type)</option>
+                            <option value="technical">Technical Only</option>
+                            <option value="creative">Creative Only</option>
+                            <option value="mixed">Mixed</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <button class="btn btn-primary" id="generate-btn">
+                        <i class="fas fa-rocket"></i> Generate Resume
+                    </button>
+                    <button class="btn btn-secondary" id="preview-btn">
+                        <i class="fas fa-eye"></i> Live Preview
+                    </button>
+                    <button class="btn btn-accent" id="download-all-btn">
+                        <i class="fas fa-download"></i> Download All Formats
+                    </button>
+                </div>
+
+                <div class="button-group">
+                    <button class="btn btn-secondary" id="export-data-btn">
+                        <i class="fas fa-file-export"></i> Export Data
+                    </button>
+                    <button class="btn btn-secondary" id="import-data-btn">
+                        <i class="fas fa-file-import"></i> Import Data
+                    </button>
+                </div>
+            </div>
+
+            <!-- Preview Area -->
+            <div class="preview-area">
+                <div class="preview-header">
+                    <div class="preview-tabs">
+                        <button class="preview-tab active" data-tab="desktop">
+                            <i class="fas fa-desktop"></i> Desktop
+                        </button>
+                        <button class="preview-tab" data-tab="tablet">
+                            <i class="fas fa-tablet-alt"></i> Tablet
+                        </button>
+                        <button class="preview-tab" data-tab="mobile">
+                            <i class="fas fa-mobile-alt"></i> Mobile
+                        </button>
+                        <button class="preview-tab" data-tab="print">
+                            <i class="fas fa-print"></i> Print
+                        </button>
+                    </div>
+                    
+                    <div class="preview-actions">
+                        <button class="btn btn-secondary" id="fullscreen-btn">
+                            <i class="fas fa-expand"></i>
+                        </button>
+                        <button class="btn btn-secondary" id="refresh-preview-btn">
+                            <i class="fas fa-sync"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="preview-content" id="preview-content">
+                    <div class="loading-state">
+                        <div class="loading-spinner"></div>
+                        <p>Click "Generate Resume" or "Live Preview" to see your resume here</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Status Messages -->
+        <div id="status-container"></div>
+
+        <!-- Analytics Panel -->
+        <div class="analytics-panel">
+            <h2><i class="fas fa-chart-bar"></i> Generation Analytics</h2>
+            <div class="analytics-grid" id="analytics-grid">
+                <div class="analytic-card">
+                    <div class="analytic-value" id="total-generations">0</div>
+                    <div class="analytic-label">Total Generations</div>
+                </div>
+                <div class="analytic-card">
+                    <div class="analytic-value" id="download-count">0</div>
+                    <div class="analytic-label">Downloads</div>
+                </div>
+                <div class="analytic-card">
+                    <div class="analytic-value" id="avg-load-time">0ms</div>
+                                    <div class="analytic-card">
+                    <div class="analytic-value" id="avg-load-time">0ms</div>
+                    <div class="analytic-label">Avg Load Time</div>
+                </div>
+                <div class="analytic-card">
+                    <div class="analytic-value" id="most-popular-theme">Tech</div>
+                    <div class="analytic-label">Popular Theme</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Features Showcase -->
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h3>AI-Powered Optimization</h3>
+                <p>Automatically optimizes content for ATS systems and specific job roles using advanced algorithms.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <h3>Fully Responsive</h3>
+                <p>Perfect display on all devices - desktop, tablet, mobile, and print. Responsive design guaranteed.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-palette"></i>
+                </div>
+                <h3>Advanced Theming</h3>
+                <p>5+ professional themes with customizable colors, fonts, and layouts. Dark mode support included.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>Real-time Analytics</h3>
+                <p>Track views, downloads, and performance metrics. A/B testing for optimal conversion rates.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-universal-access"></i>
+                </div>
+                <h3>Accessibility First</h3>
+                <p>WCAG 2.1 compliant, screen reader friendly, keyboard navigation, and high contrast support.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-download"></i>
+                </div>
+                <h3>Multiple Export Formats</h3>
+                <p>Download as HTML, PDF, or optimized versions for different platforms and use cases.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hidden file input for data import -->
+    <input type="file" id="file-input" accept=".json" style="display: none;">
+
+    <!-- Include the data and generator -->
+    <script src="enhanced-resume-data.js"></script>
+    <script src="advanced-resume-generator.js"></script>
+    
+    <script>
+        class ResumeInterface {
+            constructor() {
+                this.generator = new AdvancedResumeGenerator(enhancedResumeData);
+                this.analytics = {
+                    generations: 0,
+                    downloads: 0,
+                    loadTimes: [],
+                    themes: {}
+                };
+                this.currentConfig = null;
+                this.previewMode = 'desktop';
+                
+                this.initializeInterface();
+                this.loadAnalytics();
+            }
+
+            initializeInterface() {
+                // Event listeners for controls
+                document.getElementById('generate-btn').addEventListener('click', () => this.generateResume());
+                document.getElementById('preview-btn').addEventListener('click', () => this.showLivePreview());
+                document.getElementById('download-all-btn').addEventListener('click', () => this.downloadAllFormats());
+                document.getElementById('export-data-btn').addEventListener('click', () => this.exportData());
+                document.getElementById('import-data-btn').addEventListener('click', () => this.importData());
+                
+                // Preview controls
+                document.getElementById('fullscreen-btn').addEventListener('click', () => this.toggleFullscreen());
+                document.getElementById('refresh-preview-btn').addEventListener('click', () => this.refreshPreview());
+                
+                // Preview tabs
+                document.querySelectorAll('.preview-tab').forEach(tab => {
+                    tab.addEventListener('click', (e) => this.switchPreviewMode(e.target.dataset.tab));
+                });
+                
+                // Real-time preview on control changes
+                const controls = ['resume-type', 'theme-select', 'layout-select', 'animations-select'];
+                controls.forEach(id => {
+                    document.getElementById(id).addEventListener('change', () => {
+                        if (this.currentConfig) {
+                            this.showLivePreview();
+                        }
+                    });
+                });
+                
+                // Checkbox listeners
+                document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+                    checkbox.addEventListener('change', () => {
+                        if (this.currentConfig) {
+                            this.showLivePreview();
+                        }
+                    });
+                });
+                
+                // File import
+                document.getElementById('file-input').addEventListener('change', (e) => this.handleFileImport(e));
+                
+                // Keyboard shortcuts
+                document.addEventListener('keydown', (e) => this.handleKeyboardShortcuts(e));
+                
+                // Auto-save settings
+                this.loadSettings();
+                this.setupAutoSave();
+            }
+
+            async generateResume() {
+                const startTime = performance.now();
+                this.showStatus('Generating resume...', 'info');
+                
+                try {
+                    const config = this.buildConfig();
+                    const result = this.generator.generateAdvancedResume(config.type, config);
+                    
+                    this.currentConfig = config;
+                    this.displayResume(result.html);
+                    
+                    const loadTime = performance.now() - startTime;
+                    this.analytics.loadTimes.push(loadTime);
+                    this.analytics.generations++;
+                    this.analytics.themes[config.theme] = (this.analytics.themes[config.theme] || 0) + 1;
+                    
+                    this.updateAnalyticsDisplay();
+                    this.saveAnalytics();
+                    
+                    this.showStatus(`Resume generated successfully in ${Math.round(loadTime)}ms`, 'success');
+                    
+                    // Auto-open in new window for immediate viewing
+                    this.openInNewWindow(result.html);
+                    
+                } catch (error) {
+                    console.error('Generation failed:', error);
+                    this.showStatus(`Error: ${error.message}`, 'error');
+                }
+            }
+
+            showLivePreview() {
+                try {
+                    const config = this.buildConfig();
+                    const result = this.generator.generateAdvancedResume(config.type, config);
+                    
+                    this.currentConfig = config;
+                    this.displayResume(result.html);
+                    
+                    this.showStatus('Live preview updated', 'success');
+                } catch (error) {
+                    this.showStatus(`Preview error: ${error.message}`, 'error');
+                }
+            }
+
+            buildConfig() {
+                const type = document.getElementById('resume-type').value;
+                const theme = document.getElementById('theme-select').value;
+                const layout = document.getElementById('layout-select').value;
+                const animations = document.getElementById('animations-select').value;
+                
+                const features = {};
+                document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+                    features[checkbox.id.replace('feature-', '')] = checkbox.checked;
+                });
+                
+                const maxProjects = parseInt(document.getElementById('max-projects').value);
+                const skillsFocus = document.getElementById('skills-focus').value;
+                
+                return {
+                    type,
+                    theme,
+                    layout,
+                    animations,
+                    interactivity: features.interactive,
+                    analytics: features.analytics,
+                    seoOptimized: features.seo,
+                    accessibility: features.accessibility,
+                    printOptimized: features.print,
+                    maxProjects,
+                    skillsFocus,
+                    customization: {
+                        previewMode: this.previewMode
+                    }
+                };
+            }
+
+            displayResume(html) {
+                const previewContent = document.getElementById('preview-content');
+                const iframe = document.createElement('iframe');
+                
+                iframe.style.width = '100%';
+                iframe.style.height = '100%';
+                iframe.style.border = 'none';
+                iframe.style.borderRadius = '8px';
+                
+                // Apply preview mode styling
+                this.applyPreviewMode(iframe);
+                
+                previewContent.innerHTML = '';
+                previewContent.appendChild(iframe);
+                
+                iframe.contentDocument.open();
+                iframe.contentDocument.write(html);
+                iframe.contentDocument.close();
+                
+                // Add responsive controls to iframe
+                this.setupIframeControls(iframe);
+            }
+
+            applyPreviewMode(iframe) {
+                const modes = {
+                    desktop: { width: '100%', height: '100%' },
+                    tablet: { width: '768px', height: '1024px' },
+                    mobile: { width: '375px', height: '667px' },
+                    print: { width: '8.5in', height: '11in' }
+                };
+                
+                const mode = modes[this.previewMode] || modes.desktop;
+                iframe.style.width = mode.width;
+                iframe.style.height = mode.height;
+                
+                if (this.previewMode !== 'desktop') {
+                    iframe.style.maxWidth = '100%';
+                    iframe.style.margin = '0 auto';
+                    iframe.style.display = 'block';
+                }
+            }
+
+            switchPreviewMode(mode) {
+                this.previewMode = mode;
+                
+                // Update active tab
+                document.querySelectorAll('.preview-tab').forEach(tab => {
+                    tab.classList.remove('active');
+                });
+                document.querySelector(`[data-tab="${mode}"]`).classList.add('active');
+                
+                // Re-apply preview mode if there's content
+                const iframe = document.querySelector('#preview-content iframe');
+                if (iframe) {
+                    this.applyPreviewMode(iframe);
+                }
+            }
+
+            setupIframeControls(iframe) {
+                // Add zoom controls
+                let zoomLevel = 1;
+                
+                iframe.addEventListener('wheel', (e) => {
+                    if (e.ctrlKey) {
+                        e.preventDefault();
+                        zoomLevel += e.deltaY > 0 ? -0.1 : 0.1;
+                        zoomLevel = Math.max(0.5, Math.min(2, zoomLevel));
+                        iframe.style.transform = `scale(${zoomLevel})`;
+                        iframe.style.transformOrigin = 'top left';
+                    }
+                });
+            }
+
+            async downloadAllFormats() {
+                if (!this.currentConfig) {
+                    this.showStatus('Please generate a resume first', 'error');
+                    return;
+                }
+                
+                this.showStatus('Preparing downloads...', 'info');
+                
+                try {
+                    const result = this.generator.generateAdvancedResume(this.currentConfig.type, this.currentConfig);
+                    
+                    // Download HTML
+                    this.downloadFile(result.html, `resume-${this.currentConfig.type}.html`, 'text/html');
+                    
+                    // Generate and download different variations
+                    const variations = ['tech', 'creative', 'minimal'];
+                    for (const theme of variations) {
+                        if (theme !== this.currentConfig.theme) {
+                            const variantConfig = { ...this.currentConfig, theme };
+                            const variantResult = this.generator.generateAdvancedResume(variantConfig.type, variantConfig);
+                            this.downloadFile(variantResult.html, `resume-${variantConfig.type}-${theme}.html`, 'text/html');
+                        }
+                    }
+                    
+                    this.analytics.downloads += variations.length + 1;
+                    this.updateAnalyticsDisplay();
+                    this.saveAnalytics();
+                    
+                    this.showStatus(`Downloaded ${variations.length + 1} resume formats`, 'success');
+                    
+                } catch (error) {
+                    this.showStatus(`Download failed: ${error.message}`, 'error');
+                }
+            }
+
+            downloadFile(content, filename, mimeType) {
+                const blob = new Blob([content], { type: mimeType });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = filename;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            }
+
+            openInNewWindow(html) {
+                const newWindow = window.open('', '_blank');
+                newWindow.document.write(html);
+                newWindow.document.close();
+                newWindow.focus();
+            }
+
+            exportData() {
+                try {
+                    const exportData = this.generator.exportResumeData();
+                    const exportString = JSON.stringify(exportData, null, 2);
+                    
+                    this.downloadFile(exportString, 'resume-data-export.json', 'application/json');
+                    this.showStatus('Data exported successfully', 'success');
+                } catch (error) {
+                    this.showStatus(`Export failed: ${error.message}`, 'error');
+                }
+            }
+
+            importData() {
+                document.getElementById('file-input').click();
+            }
+
+            handleFileImport(event) {
+                const file = event.target.files[0];
+                if (!file) return;
+                
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    try {
+                        const importData = JSON.parse(e.target.result);
+                        this.generator.importResumeData(importData);
+                        this.showStatus('Data imported successfully', 'success');
+                    } catch (error) {
+                        this.showStatus(`Import failed: ${error.message}`, 'error');
+                    }
+                };
+                reader.readAsText(file);
+            }
+
+            toggleFullscreen() {
+                const previewArea = document.querySelector('.preview-area');
+                if (!document.fullscreenElement) {
+                    previewArea.requestFullscreen();
+                } else {
+                    document.exitFullscreen();
+                }
+            }
+
+            refreshPreview() {
+                if (this.currentConfig) {
+                    this.showLivePreview();
+                }
+            }
+
+            handleKeyboardShortcuts(event) {
+                if (event.ctrlKey || event.metaKey) {
+                    switch (event.key) {
+                        case 'g':
+                            event.preventDefault();
+                            this.generateResume();
+                            break;
+                        case 'p':
+                            event.preventDefault();
+                            this.showLivePreview();
+                            break;
+                        case 'd':
+                            event.preventDefault();
+                            this.downloadAllFormats();
+                            break;
+                        case 's':
+                            event.preventDefault();
+                            this.exportData();
+                            break;
+                    }
+                }
+            }
+
+            showStatus(message, type) {
+                const container = document.getElementById('status-container');
+                const statusDiv = document.createElement('div');
+                statusDiv.className = `status-message status-${type}`;
+                statusDiv.innerHTML = `
+                    <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle'}"></i>
+                    ${message}
+                `;
+                
+                container.appendChild(statusDiv);
+                
+                // Auto-remove after 5 seconds
+                setTimeout(() => {
+                    if (statusDiv.parentNode) {
+                        statusDiv.remove();
+                    }
+                }, 5000);
+            }
+
+            loadSettings() {
+                const settings = localStorage.getItem('resume-generator-settings');
+                if (settings) {
+                    const parsed = JSON.parse(settings);
+                    
+                    // Apply saved settings to controls
+                    Object.entries(parsed).forEach(([key, value]) => {
+                        const element = document.getElementById(key);
+                        if (element) {
+                            if (element.type === 'checkbox') {
+                                element.checked = value;
+                            } else {
+                                element.value = value;
+                            }
+                        }
+                    });
+                }
+            }
+
+            setupAutoSave() {
+                const controls = [
+                    'resume-type', 'theme-select', 'layout-select', 'animations-select',
+                    'max-projects', 'skills-focus', 'feature-interactive', 'feature-analytics',
+                    'feature-seo', 'feature-accessibility', 'feature-print'
+                ];
+                
+                controls.forEach(id => {
+                    const element = document.getElementById(id);
+                    if (element) {
+                        element.addEventListener('change', () => this.saveSettings());
+                    }
+                });
+            }
+
+            saveSettings() {
+                const settings = {};
+                const controls = [
+                    'resume-type', 'theme-select', 'layout-select', 'animations-select',
+                    'max-projects', 'skills-focus', 'feature-interactive', 'feature-analytics',
+                    'feature-seo', 'feature-accessibility', 'feature-print'
+                ];
+                
+                controls.forEach(id => {
+                    const element = document.getElementById(id);
+                    if (element) {
+                        settings[id] = element.type === 'checkbox' ? element.checked : element.value;
+                    }
+                });
+                
+                localStorage.setItem('resume-generator-settings', JSON.stringify(settings));
+            }
+
+            loadAnalytics() {
+                const saved = localStorage.getItem('resume-generator-analytics');
+                if (saved) {
+                    this.analytics = { ...this.analytics, ...JSON.parse(saved) };
+                }
+                this.updateAnalyticsDisplay();
+            }
+
+            saveAnalytics() {
+                localStorage.setItem('resume-generator-analytics', JSON.stringify(this.analytics));
+            }
+
+            updateAnalyticsDisplay() {
+                document.getElementById('total-generations').textContent = this.analytics.generations;
+                document.getElementById('download-count').textContent = this.analytics.downloads;
+                
+                const avgLoadTime = this.analytics.loadTimes.length > 0 
+                    ? Math.round(this.analytics.loadTimes.reduce((a, b) => a + b, 0) / this.analytics.loadTimes.length)
+                    : 0;
+                document.getElementById('avg-load-time').textContent = avgLoadTime + 'ms';
+                
+                const mostPopularTheme = Object.entries(this.analytics.themes)
+                    .sort(([,a], [,b]) => b - a)[0]?.[0] || 'Tech';
+                document.getElementById('most-popular-theme').textContent = mostPopularTheme.charAt(0).toUpperCase() + mostPopularTheme.slice(1);
+            }
+
+            // Advanced features
+            runPerformanceTest() {
+                const start = performance.now();
+                this.generateResume().then(() => {
+                    const duration = performance.now() - start;
+                    console.log(`Performance test completed in ${duration}ms`);
+                });
+            }
+
+            generateMultipleVersions() {
+                const types = ['ai_product', 'creative_voice', 'general', 'startup'];
+                const themes = ['tech', 'creative', 'corporate', 'minimal'];
+                
+                types.forEach(type => {
+                    themes.forEach(theme => {
+                        const config = { ...this.buildConfig(), type, theme };
+                        const result = this.generator.generateAdvancedResume(type, config);
+                        this.downloadFile(result.html, `resume-${type}-${theme}.html`, 'text/html');
+                    });
+                });
+                
+                this.showStatus(`Generated ${types.length * themes.length} resume variations`, 'success');
+            }
+
+            enableDebugMode() {
+                console.log('Debug mode enabled');
+                console.log('Current config:', this.currentConfig);
+                console.log('Analytics:', this.analytics);
+                console.log('Generator instance:', this.generator);
+                
+                // Add debug panel
+                const debugPanel = document.createElement('div');
+                debugPanel.style.cssText = `
+                    position: fixed;
+                    top: 10px;
+                    right: 10px;
+                    background: rgba(0,0,0,0.8);
+                    color: white;
+                    padding: 1rem;
+                    border-radius: 8px;
+                    font-family: monospace;
+                    font-size: 12px;
+                    max-width: 300px;
+                    z-index: 10000;
+                `;
+                debugPanel.innerHTML = `
+                    <h4>Debug Info</h4>
+                    <p>Generations: ${this.analytics.generations}</p>
+                    <p>Avg Load Time: ${Math.round(this.analytics.loadTimes.reduce((a, b) => a + b, 0) / this.analytics.loadTimes.length || 0)}ms</p>
+                    <p>Current Theme: ${this.currentConfig?.theme || 'None'}</p>
+                    <button onclick="this.parentElement.remove()">Close</button>
+                `;
+                document.body.appendChild(debugPanel);
+            }
+        }
+
+        // Initialize the interface when the page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            window.resumeInterface = new ResumeInterface();
+            
+            // Enable debug mode with Ctrl+Shift+D
+            document.addEventListener('keydown', (e) => {
+                if (e.ctrlKey && e.shiftKey && e.key === 'D') {
+                    window.resumeInterface.enableDebugMode();
+                }
+            });
+            
+            console.log('Advanced Resume Generator Interface loaded successfully!');
+            console.log('Keyboard shortcuts:');
+            console.log('  Ctrl+G: Generate Resume');
+            console.log('  Ctrl+P: Live Preview'); 
+            console.log('  Ctrl+D: Download All');
+            console.log('  Ctrl+S: Export Data');
+            console.log('  Ctrl+Shift+D: Debug Mode');
+        });
+
+        // Service worker for offline functionality
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js').catch(console.error);
+        }
+    </script>
+</body>
+</html>
+
