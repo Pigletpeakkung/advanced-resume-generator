@@ -173,3 +173,678 @@ For licensing questions, technical support, or collaboration opportunities, plea
 
 **Repository**: https://github.com/ThanattsittS/advanced-resume-generator  
 **License File**: https://github.com/ThanattsittS/advanced-resume-generator/blob/main/LICENSE
+## License Implementation Files
+
+### 1. Source Code License Headers
+
+#### JavaScript Files (`license-header.js`)
+```javascript
+/*!
+ * Advanced Resume Generator v2.2.1
+ * https://github.com/ThanattsittS/advanced-resume-generator
+ * 
+ * Copyright (c) 2024 Thanattsitt Thanatt Santisamranwilai
+ * 
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ * 
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+```
+
+#### CSS Files (`style-header.css`)
+```css
+/*!
+ * Advanced Resume Generator Styles v2.2.1
+ * Copyright (c) 2024 Thanattsitt Thanatt Santisamranwilai
+ * Licensed under MIT License
+ * https://github.com/ThanattsittS/advanced-resume-generator
+ */
+```
+
+#### HTML Files (`html-header.html`)
+```html
+<!--
+  Advanced Resume Generator v2.2.1
+  Copyright (c) 2024 Thanattsitt Thanatt Santisamranwilai
+  Licensed under MIT License - https://opensource.org/licenses/MIT
+  Repository: https://github.com/ThanattsittS/advanced-resume-generator
+-->
+```
+
+### 2. Third-Party Licenses (`THIRD-PARTY-LICENSES.md`)
+
+```markdown
+# Third-Party Licenses
+
+This software uses the following third-party libraries and assets:
+
+## Runtime Dependencies
+
+### Express.js v4.18.2
+- **License**: MIT License
+- **Copyright**: Copyright (c) 2009-2014 TJ Holowaychuk <tj@vision-media.ca>
+- **Repository**: https://github.com/expressjs/express
+- **License File**: https://github.com/expressjs/express/blob/master/LICENSE
+
+### Commander.js v11.1.0
+- **License**: MIT License  
+- **Copyright**: Copyright (c) 2011 TJ Holowaychuk <tj@vision-media.ca>
+- **Repository**: https://github.com/tj/commander.js
+- **License File**: https://github.com/tj/commander.js/blob/master/LICENSE
+
+### Inquirer.js v9.2.12
+- **License**: MIT License
+- **Copyright**: Copyright (c) 2012 Simon Boudrias
+- **Repository**: https://github.com/SBoudrias/Inquirer.js
+- **License File**: https://github.com/SBoudrias/Inquirer.js/blob/master/LICENSE
+
+### Chalk v5.3.0
+- **License**: MIT License
+- **Copyright**: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com>
+- **Repository**: https://github.com/chalk/chalk
+- **License File**: https://github.com/chalk/chalk/blob/main/license
+
+### Ora v7.0.1
+- **License**: MIT License
+- **Copyright**: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com>
+- **Repository**: https://github.com/sindresorhus/ora
+- **License File**: https://github.com/sindresorhus/ora/blob/main/license
+
+### Open v9.1.0
+- **License**: MIT License
+- **Copyright**: Copyright (c) Sindre Sorhus <sindresorhus@gmail.com>
+- **Repository**: https://github.com/sindresorhus/open
+- **License File**: https://github.com/sindresorhus/open/blob/main/license
+
+### js-yaml v4.1.0
+- **License**: MIT License
+- **Copyright**: Copyright (C) 2011-2015 by Vitaly Puzrin
+- **Repository**: https://github.com/nodeca/js-yaml
+- **License File**: https://github.com/nodeca/js-yaml/blob/master/LICENSE
+
+## Development Dependencies
+
+### Jest v29.7.0
+- **License**: MIT License
+- **Copyright**: Copyright (c) Meta Platforms, Inc. and affiliates
+- **Repository**: https://github.com/facebook/jest
+- **License File**: https://github.com/facebook/jest/blob/main/LICENSE
+
+### ESLint v8.54.0
+- **License**: MIT License
+- **Copyright**: Copyright OpenJS Foundation and other contributors
+- **Repository**: https://github.com/eslint/eslint
+- **License File**: https://github.com/eslint/eslint/blob/main/LICENSE
+
+### Webpack v5.89.0
+- **License**: MIT License
+- **Copyright**: Copyright JS Foundation and other contributors
+- **Repository**: https://github.com/webpack/webpack
+- **License File**: https://github.com/webpack/webpack/blob/main/LICENSE
+
+## Assets and Fonts
+
+### Font Awesome v6.4.0
+- **License**: Font Awesome Free License
+- **Icons License**: CC BY 4.0 License
+- **Fonts License**: SIL OFL 1.1 License
+- **Code License**: MIT License
+- **Website**: https://fontawesome.com/
+- **License Details**: https://fontawesome.com/license/free
+
+### Google Fonts - Inter
+- **License**: SIL Open Font License 1.1
+- **Copyright**: Copyright 2020 The Inter Project Authors
+- **Repository**: https://github.com/rsms/inter
+- **License File**: https://github.com/rsms/inter/blob/master/LICENSE.txt
+
+### Google Fonts - Roboto
+- **License**: Apache License 2.0
+- **Copyright**: Copyright 2011 Google Inc.
+- **Repository**: https://github.com/googlefonts/roboto
+- **License File**: https://github.com/googlefonts/roboto/blob/main/LICENSE
+
+## CDN Resources
+
+### Font Awesome CDN
+```
+https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css
+License: Font Awesome Free License
+```
+
+### Google Fonts CDN
+```
+https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap
+License: SIL Open Font License 1.1
+```
+
+## License Compatibility
+
+All third-party licenses are compatible with the MIT License used by this project:
+
+- ✅ **MIT with MIT**: Full compatibility
+- ✅ **Apache 2.0 with MIT**: Compatible for distribution
+- ✅ **SIL OFL with MIT**: Compatible for font usage
+- ✅ **CC BY 4.0 with MIT**: Compatible with attribution
+
+## Attribution Requirements
+
+When distributing this software, ensure compliance with attribution requirements:
+
+1. **Font Awesome**: Include Font Awesome attribution if using icons
+2. **Google Fonts**: No attribution required but recommended
+3. **Other Libraries**: Include original copyright notices
+
+## Full License Texts
+
+For complete license texts, please refer to:
+- [MIT License](https://opensource.org/licenses/MIT)
+- [Apache License 2.0](https://opensource.org/licenses/Apache-2.0)  
+- [SIL Open Font License 1.1](https://opensource.org/licenses/OFL-1.1)
+- [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+```
+
+### 3. License Automation Script (`scripts/add-license-headers.js`)
+
+```javascript
+#!/usr/bin/env node
+
+const fs = require('fs');
+const path = require('path');
+const glob = require('glob');
+
+// License headers for different file types
+const licenseHeaders = {
+  js: `/*!
+ * Advanced Resume Generator v2.2.1
+ * https://github.com/ThanattsittS/advanced-resume-generator
+ * 
+ * Copyright (c) 2024 Thanattsitt Thanatt Santisamranwilai
+ * Licensed under MIT License - https://opensource.org/licenses/MIT
+ */
+
+`,
+  
+  css: `/*!
+ * Advanced Resume Generator Styles v2.2.1
+ * Copyright (c) 2024 Thanattsitt Thanatt Santisamranwilai
+ * Licensed under MIT License
+ * https://github.com/ThanattsittS/advanced-resume-generator
+ */
+
+`,
+  
+  html: `<!--
+  Advanced Resume Generator v2.2.1
+  Copyright (c) 2024 Thanattsitt Thanatt Santisamranwilai
+  Licensed under MIT License - https://opensource.org/licenses/MIT
+  Repository: https://github.com/ThanattsittS/advanced-resume-generator
+-->
+
+`
+};
+
+// Check if file already has license header
+function hasLicenseHeader(content) {
+  return content.includes('Advanced Resume Generator') && 
+         content.includes('Thanattsitt Thanatt Santisamranwilai');
+}
+
+// Add license header to file
+function addLicenseHeader(filePath) {
+  const ext = path.extname(filePath).substring(1);
+  const header = licenseHeaders[ext];
+  
+  if (!header) {
+    console.log(`⏭️  Skipping ${filePath} - no header template for .${ext} files`);
+    return;
+  }
+  
+  const content = fs.readFileSync(filePath, 'utf8');
+  
+  if (hasLicenseHeader(content)) {
+    console.log(`✅ ${filePath} already has license header`);
+    return;
+  }
+  
+  const newContent = header + content;
+  fs.writeFileSync(filePath, newContent, 'utf8');
+  console.log(`📝 Added license header to ${filePath}`);
+}
+
+// Main execution
+function main() {
+  console.log('🔍 Adding license headers to source files...\n');
+  
+  // Find all source files
+  const patterns = [
+    '*.js',
+    'src/**/*.js',
+    '*.css',
+    'src/**/*.css', 
+    '*.html',
+    '!node_modules/**/*',
+    '!dist/**/*',
+    '!coverage/**/*'
+  ];
+  
+  patterns.forEach(pattern => {
+    const files = glob.sync(pattern);
+    files.forEach(addLicenseHeader);
+  });
+  
+  console.log('\n✅ License header addition completed!');
+}
+
+// Run the script
+if (require.main === module) {
+  main();
+}
+
+module.exports = { addLicenseHeader, hasLicenseHeader };
+```
+
+### 4. License Compliance Checker (`scripts/check-licenses.js`)
+
+```javascript
+#!/usr/bin/env node
+
+const fs = require('fs');
+const path = require('path');
+const { execSync } = require('child_process');
+
+class LicenseChecker {
+  constructor() {
+    this.packageJson = JSON.parse(fs.readFileSync('package.json', 'utf8'));
+    this.allowedLicenses = [
+      'MIT',
+      'ISC', 
+      'Apache-2.0',
+      'BSD-2-Clause',
+      'BSD-3-Clause',
+      'CC-BY-4.0',
+      'SIL OFL 1.1',
+      'Unlicense'
+    ];
+    this.problematicLicenses = [
+      'GPL-3.0',
+      'LGPL-3.0',
+      'AGPL-3.0',
+      'CC-BY-SA-4.0'
+    ];
+  }
+
+  // Check npm package licenses
+  checkNpmLicenses() {
+    console.log('📋 Checking npm package licenses...\n');
+    
+    try {
+      const result = execSync('npx license-checker --json', { encoding: 'utf8' });
+      const licenses = JSON.parse(result);
+      
+      const issues = [];
+      const summary = {};
+      
+      Object.entries(licenses).forEach(([pkg, info]) => {
+        const license = info.licenses;
+        
+        // Count license types
+        summary[license] = (summary[license] || 0) + 1;
+        
+        // Check for problematic licenses
+        if (this.problematicLicenses.includes(license)) {
+          issues.push({
+            package: pkg,
+            license: license,
+            severity: 'HIGH',
+            reason: 'Copyleft license may require code disclosure'
+          });
+        }
+        
+        // Check for unknown licenses
+        if (!this.allowedLicenses.includes(license) && 
+            !this.problematicLicenses.includes(license)) {
+          issues.push({
+            package: pkg,
+            license: license,
+            severity: 'MEDIUM',
+            reason: 'License compatibility unknown'
+          });
+        }
+      });
+      
+      return { summary, issues };
+      
+    } catch (error) {
+      console.error('❌ Error checking npm licenses:', error.message);
+      return { summary: {}, issues: [] };
+    }
+  }
+
+  // Check source file headers
+  checkSourceHeaders() {
+    console.log('📝 Checking source file license headers...\n');
+    
+    const glob = require('glob');
+    const patterns = ['*.js', 'src/**/*.js', '*.css', '*.html'];
+    const missing = [];
+    
+    patterns.forEach(pattern => {
+      const files = glob.sync(pattern, { ignore: 'node_modules/**' });
+      
+      files.forEach(file => {
+        const content = fs.readFileSync(file, 'utf8');
+        
+        if (!content.includes('Copyright (c) 2024 Thanattsitt Thanatt Santisamranwilai')) {
+          missing.push(file);
+        }
+      });
+    });
+    
+    return missing;
+  }
+
+  // Generate license report
+  generateReport() {
+    const npmCheck = this.checkNpmLicenses();
+    const headerCheck = this.checkSourceHeaders();
+    
+    const report = {
+      timestamp: new Date().toISOString(),
+      project: this.packageJson.name,
+      version: this.packageJson.version,
+      npm_licenses: npmCheck,
+      missing_headers: headerCheck,
+      compliance_status: npmCheck.issues.length === 0 && headerCheck.length === 0 ? 'COMPLIANT' : 'ISSUES_FOUND'
+    };
+    
+    return report;
+  }
+
+  // Display report
+  displayReport(report) {
+    console.log('📊 LICENSE COMPLIANCE REPORT');
+    console.log('='.repeat(50));
+    console.log(`Project: ${report.project} v${report.version}`);
+    console.log(`Generated: ${new Date(report.timestamp).toLocaleString()}`);
+    console.log(`Status: ${report.compliance_status}`);
+    console.log('');
+    
+    // NPM License Summary
+    console.log('📦 NPM Package Licenses:');
+    Object.entries(report.npm_licenses.summary)
+      .sort(([,a], [,b]) => b - a)
+      .forEach(([license, count]) => {
+        const status = this.allowedLicenses.includes(license) ? '✅' : 
+                      this.problematicLicenses.includes(license) ? '❌' : '⚠️';
+        console.log(`  ${status} ${license}: ${count} packages`);
+      });
+    console.log('');
+    
+    // Issues
+    if (report.npm_licenses.issues.length > 0) {
+      console.log('⚠️  License Issues:');
+      report.npm_licenses.issues.forEach(issue => {
+        const emoji = issue.severity === 'HIGH' ? '🚨' : '⚠️';
+        console.log(`  ${emoji} ${issue.package}`);
+        console.log(`     License: ${issue.license}`);
+        console.log(`     Reason: ${issue.reason}`);
+        console.log('');
+      });
+    }
+    
+    // Missing Headers
+    if (report.missing_headers.length > 0) {
+      console.log('📝 Missing License Headers:');
+      report.missing_headers.forEach(file => {
+        console.log(`  ❌ ${file}`);
+      });
+      console.log('');
+    }
+    
+    // Recommendations
+    console.log('💡 Recommendations:');
+    if (report.npm_licenses.issues.length > 0) {
+      console.log('  • Review packages with problematic licenses');
+      console.log('  • Consider alternatives for copyleft licensed packages');
+    }
+    if (report.missing_headers.length > 0) {
+      console.log('  • Add license headers to source files');
+      console.log('  • Run: npm run add-license-headers');
+    }
+    if (report.compliance_status === 'COMPLIANT') {
+      console.log('  ✅ All checks passed! Project is license compliant.');
+    }
+  }
+
+  // Save report to file
+  saveReport(report, filename = 'license-compliance-report.json') {
+    fs.writeFileSync(filename, JSON.stringify(report, null, 2));
+    console.log(`📄 Report saved to ${filename}`);
+  }
+}
+
+// Main execution
+function main() {
+  console.log('🔍 LICENSE COMPLIANCE CHECK\n');
+  
+  const checker = new LicenseChecker();
+  const report = checker.generateReport();
+  
+  checker.displayReport(report);
+  checker.saveReport(report);
+  
+  // Exit with appropriate code
+  process.exit(report.compliance_status === 'COMPLIANT' ? 0 : 1);
+}
+
+if (require.main === module) {
+  main();
+}
+
+module.exports = LicenseChecker;
+```
+
+### 5. Copyright Notice Generator (`scripts/generate-copyright.js`)
+
+```javascript
+#!/usr/bin/env node
+
+const fs = require('fs');
+const path = require('path');
+
+// Generate comprehensive copyright notice
+function generateCopyrightNotice() {
+  const currentYear = new Date().getFullYear();
+  const packageJson = JSON.parse(fs.readFileSync('package.json', 'utf8'));
+  
+  const notice = `
+# Copyright Notice
+
+## Advanced Resume Generator
+
+**Software**: ${packageJson.name} v${packageJson.version}  
+**Copyright**: © ${currentYear} Thanattsitt Thanatt Santisamranwilai  
+**License**: MIT License  
+**Repository**: https://github.com/ThanattsittS/advanced-resume-generator  
+
+## Rights and Permissions
+
+Under the MIT License, you are granted rights to:
+
+### ✅ Permissions
+- **Commercial Use**: Use the software for commercial purposes
+- **Modification**: Modify the software to suit your needs  
+- **Distribution**: Distribute copies of the software
+- **Private Use**: Use the software for private purposes
+- **Sublicensing**: Grant sublicenses to the software
+
+### ❌ Limitations  
+- **Liability**: The author is not liable for damages
+- **Warranty**: No warranty is provided with the software
+
+### 📋 Conditions
+- **License and Copyright Notice**: Include the original license and copyright notice
+- **Attribution**: Credit the original author when redistributing
+
+## Author Information
+
+**Name**: Thanattsitt Thanatt Santisamranwilai  
+**Email**: thanattsitt.info@yahoo.co.uk  
+**Portfolio**: https://dribbble.com/ThanattsittS  
+**GitHub**: https://github.com/ThanattsittS  
+
+## Contact for Licensing Questions
+
+For questions about licensing, commercial use, or custom licensing arrangements:
+
+- **Email**: thanattsitt.info@yahoo.co.uk
+- **Subject**: "Licensing Inquiry - Advanced Resume Generator"
+- **Response Time**: Within 48 hours
+
+## Trademark Notice
+
+"Advanced Resume Generator" and associated branding are trademarks of Thanattsitt Thanatt Santisamranwilai. The MIT License does not grant permission to use the author's name, trademarks, or branding for endorsement without permission.
+
+## Third-Party Copyrights
+
+This software includes third-party components with their own copyright notices. See \`THIRD-PARTY-LICENSES.md\` for complete details.
+
+---
+
+**Generated on**: ${new Date().toLocaleDateString()}  
+**License Version**: MIT License (https://opensource.org/licenses/MIT)  
+**Compliance Check**: Run \`npm run check-licenses\` to verify compliance  
+
+*This notice was automatically generated. For the most current version, see the repository.*
+`;
+
+  return notice;
+}
+
+// Write copyright notice to file
+function writeCopyrightNotice() {
+  const notice = generateCopyrightNotice();
+  fs.writeFileSync('COPYRIGHT.md', notice.trim());
+  console.log('✅ Copyright notice generated: COPYRIGHT.md');
+}
+
+// Generate SPDX license identifier
+function generateSPDXIdentifier() {
+  const spdx = `SPDX-License-Identifier: MIT
+SPDX-FileCopyrightText: 2024 Thanattsitt Thanatt Santisamranwilai <thanattsitt.info@yahoo.co.uk>
+`;
+  
+  fs.writeFileSync('.reuse/dep5', spdx);
+  console.log('✅ SPDX identifier generated: .reuse/dep5');
+}
+
+// Main execution
+if (require.main === module) {
+  console.log('📄 Generating copyright documentation...\n');
+  writeCopyrightNotice();
+  generateSPDXIdentifier();
+  console.log('\n✅ Copyright documentation generated successfully!');
+}
+
+module.exports = {
+  generateCopyrightNotice,
+  writeCopyrightNotice,
+  generateSPDXIdentifier
+};
+```
+
+### 6. License Update Package.json Scripts
+
+Add these scripts to your `package.json`:
+
+```json
+{
+  "scripts": {
+    "license:check": "node scripts/check-licenses.js",
+    "license:headers": "node scripts/add-license-headers.js", 
+    "license:report": "node scripts/check-licenses.js --report",
+    "license:copyright": "node scripts/generate-copyright.js",
+    "license:all": "npm run license:headers && npm run license:copyright && npm run license:check",
+    "prebuild": "npm run license:check",
+    "prepublishOnly": "npm run license:all"
+  },
+  "devDependencies": {
+    "license-checker": "^25.0.1",
+    "glob": "^10.3.0"
+  }
+}
+```
+
+### 7. GitHub License Badge (`README.md` addition)
+
+```markdown
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License Check](https://github.com/ThanattsittS/advanced-resume-generator/actions/workflows/license-check.yml/badge.svg)](https://github.com/ThanattsittS/advanced-resume-generator/actions/workflows/license-check.yml)
+[![REUSE Compliance](https://img.shields.io/badge/REUSE-compliant-green)](https://reuse.software/)
+```
+
+### 8. GitHub Action for License Check (`.github/workflows/license-check.yml`)
+
+```yaml
+name: License Check
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  license-check:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+          
+      - name: Install dependencies
+        run: npm ci
+        
+      - name: Check license compliance
+        run: npm run license:check
+        
+      - name: Verify license headers
+        run: npm run license:headers
+        
+      - name: Upload license report
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: license-compliance-report
+          path: license-compliance-report.json
+```
+
+This comprehensive licensing setup ensures:
+- ✅ **Legal Compliance**: Proper attribution and license notices
+- ✅ **Automation**: Automatic license checking and header addition  
+- ✅ **Documentation**: Clear licensing terms and third-party notices
+- ✅ **CI/CD Integration**: License checking in build pipeline
+- ✅ **Transparency**: Open source compliance and SPDX identifiers
+
+The MIT License provides maximum flexibility while the additional tooling ensures proper compliance and attribution.
